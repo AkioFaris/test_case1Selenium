@@ -9,15 +9,13 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import static core.TestsConstants.*;
-
 
 public class SimpleTest {
     private WebDriver driver;
 
     @BeforeMethod
     public void before() {
-        System.setProperty("webdriver.gecko.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -30,7 +28,16 @@ public class SimpleTest {
     }
 
     @Test
-    public void submitContactTest() {
+    public void verifyLoginAndContactSubmitting() {
+        String TESTS_API_URI = "https://jdi-framework.github.io/tests";
+        String PARAM_LOGIN = "epam";
+        String PARAM_PASSWORD = "1234";
+        String TITLE_INDEX_PAGE = "Index Page";
+        String TITLE_CONTACT_FORM = "Contact Form";
+        String PARAM_FIRST_NAME = "Stefani";
+        String PARAM_LAST_NAME = "Nkodia";
+        String LOG_TEXT = "submit";
+
         /* Open test site by URL */
         driver.navigate().to(TESTS_API_URI);
 
@@ -38,23 +45,21 @@ public class SimpleTest {
         Assert.assertEquals(driver.getTitle(), TITLE_INDEX_PAGE);
 
         /* Perform login */
-        WebElement elCaret = driver.findElement(By.xpath("html/body/div[1]/header/div/nav/ul[2]/li/a"));
+        WebElement elCaret = driver.findElement(By.xpath("(//SPAN[@class='caret'])[2]"));
         elCaret.click();
         WebElement elLogin = driver.findElement(By.xpath(".//*[@id='Login']"));
         elLogin.sendKeys(PARAM_LOGIN);
         WebElement elPassword = driver.findElement(By.xpath(".//*[@id='Password']"));
         elPassword.sendKeys(PARAM_PASSWORD);
-        WebElement submitBtn = driver.findElement(By.xpath("html/body/div[1]/header/div/nav/ul[2]/li/div/form/button"));
+        WebElement submitBtn = driver.findElement(By.xpath("(//BUTTON[@type='submit'])[1]"));
         submitBtn.click();
 
        /* Assert User name in the left-top side of screen that user is loggined */
-        WebElement elUserName = driver.findElement(By.xpath("html/body/div[1]/header/div/nav/ul[2]/li/a/div/span"));
+        WebElement elUserName = driver.findElement(By.xpath("//SPAN[@class=''][text()='Piter Chailovskii']"));
         Assert.assertTrue(elUserName.isDisplayed());
-        Assert.assertEquals(elUserName.getAttribute("textContent"), USER_NAME);
 
         /* Open Contact form */
-        WebElement elContactFrmBtn = driver.findElement(
-                By.xpath("//*[@class = 'uui-navigation nav navbar-nav m-l8']//*[@href='page1.htm']"));
+        WebElement elContactFrmBtn = driver.findElement(By.xpath("//A[@href='page1.htm'][text()='Contact form']"));
         elContactFrmBtn.click();
 
         /* Assert Browser title */
@@ -65,7 +70,7 @@ public class SimpleTest {
         elName.sendKeys(PARAM_FIRST_NAME);
         WebElement elLastName = driver.findElement(By.xpath(".//*[@id='LastName']"));
         elLastName.sendKeys(PARAM_LAST_NAME);
-        WebElement submitContactBtn = driver.findElement(By.xpath("html/body/div[1]/div/main/div[2]/div/form/div[3]/div[2]/button"));
+        WebElement submitContactBtn = driver.findElement(By.xpath("//BUTTON[@class='uui-button dark-blue']"));
         submitContactBtn.click();
 
         /* Assert that in the log section a new raw has displayed which contains text "submit" */
