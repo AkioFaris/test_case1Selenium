@@ -34,7 +34,7 @@ public class SimpleTest {
         String TESTS_API_URI = "https://jdi-framework.github.io/tests";
         String PARAM_LOGIN = "epam";
         String PARAM_PASSWORD = "1234";
-        String TITLE_INDEX_PAGE = "Index Page";
+        String TITLE_INDEX_PAGE = "Index PageObject";
         String TITLE_CONTACT_FORM = "Contact Form";
         String PARAM_FIRST_NAME = "Stefani";
         String PARAM_LAST_NAME = "Nkodia";

@@ -6,11 +6,11 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class TestWithAnnotations {
-    private String driverPath = "chromedriver.exe";
     private WebDriver driver;
 
     @BeforeClass
     public void beforeClass() {
+        String driverPath = "chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverPath);
     }
 

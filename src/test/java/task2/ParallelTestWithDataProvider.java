@@ -5,17 +5,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 public class ParallelTestWithDataProvider {
     @DataProvider(parallel = true)
     public Object[][] correctData() {
         return new Object[][]{
-                {"(//SPAN[@class='benefit-txt'])[1]", "To include good practices\nand ideas from successful\nEPAM projec"},
-                {"(//SPAN[@class='benefit-txt'])[2]", "To be flexible and\ncustomizable"},
-                {"(//SPAN[@class='benefit-txt'])[3]", "To be multiplatform"},
-                {"(//SPAN[@class='benefit-txt'])[4]",
-                        "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…"}};
+                {0, "To include good practices\nand ideas from successful\nEPAM projec"},
+                {1, "To be flexible and\ncustomizable"},
+                {2, "To be multiplatform"},
+                {3, "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…"}};
     }
 
     @BeforeTest
@@ -25,16 +26,16 @@ public class ParallelTestWithDataProvider {
     }
 
     @Test(dataProvider = "correctData")
-    public void verifyTextsUnderPictures(String xpath, String correctText) {
-        String TESTS_API_URI = "https://jdi-framework.github.io/tests";
+    public void verifyTextsUnderPictures(int index, String correctText) {
+        String apiURL = "https://jdi-framework.github.io/tests";
 
         /* Open test site by URL */
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.navigate().to(TESTS_API_URI);
+        driver.navigate().to(apiURL);
 
         /* Find element and check text */
-        WebElement element = driver.findElement(By.xpath(xpath));
+        WebElement element = driver.findElements(By.cssSelector(".benefit-txt")).get(index);
         String elText = element.getText();
         Assert.assertEquals(elText, correctText);
 
