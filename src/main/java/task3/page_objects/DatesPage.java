@@ -3,6 +3,7 @@ package task3.page_objects;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.actions;
@@ -57,6 +58,7 @@ public class DatesPage {
         correctPosition(slider, position);
     }
 
+    @Step("Set left slider to {0} and right slider to {1}.")
     public void setSliders(int leftSliderPos, int rightSliderPos) {
         if (rightSliderPos < leftSliderPos)
             return;
@@ -71,6 +73,7 @@ public class DatesPage {
 
     }
 
+    @Step("Check that left slider is set to {0} and right slider is set to {1}.")
     public void checkSliders(int leftSliderPos, int rightSliderPos) {
         sliderTrack.scrollTo();
         sliders.get(0).shouldHave(exactText(Integer.toString(leftSliderPos)));

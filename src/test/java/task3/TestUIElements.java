@@ -2,6 +2,7 @@ package task3;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Step;
 import task3.enums.Options;
 import task3.init_classes.TestUI;
 import task3.page_objects.*;
@@ -46,7 +47,7 @@ public class TestUIElements extends task3.init_classes.TestUI {
         /* Check interface on Home page, it contains all needed elements. */
         homePage.checkInterface();
 
-        /* Click on "Service" subcategory in the header and check that drop down contains options */
+        /* Click on "Service" subcategory in the header and check that dropdown contains options */
         header.checkServiceOptions();
 
         /* Click on Service subcategory in the left section and check that drop down contains options */

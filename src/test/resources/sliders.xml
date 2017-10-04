@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="pageObjectTest" verbose="1">
+    <test name="Sliders">
+        <classes>
+            <class name="task3.TestRangeSliders"/>
+        </classes>
+    </test>
+</suite>
+

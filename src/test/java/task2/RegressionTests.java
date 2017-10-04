@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class RegressionTests {
 
-    @Test(groups = "Regression")
+    @Test(groups = "Regression", enabled = false)
     public void verifyTitle1() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebDriver driver = new ChromeDriver();

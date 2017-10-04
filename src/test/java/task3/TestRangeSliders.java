@@ -1,7 +1,11 @@
 package task3;
 
+import listener.AllureAttachmentListener;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Description;
+import ru.yandex.qatools.allure.annotations.Title;
 import task3.init_classes.TestUI;
 import task3.page_objects.DatesPage;
 import task3.page_objects.Header;
@@ -13,6 +17,7 @@ import static task3.enums.Options.DATES;
 import static task3.enums.TestConstants.API_URI;
 import static task3.enums.UserData.USER;
 
+@Listeners(AllureAttachmentListener.class)
 public class TestRangeSliders extends TestUI {
     private LoginForm loginForm;
     private Header header;
@@ -25,6 +30,8 @@ public class TestRangeSliders extends TestUI {
         datesPage = page(DatesPage.class);
     }
 
+    @Title("Test range sliders")
+    @Description("In this test range sliders on Dates page will be set to different positions.")
     @Test
     public void checkUIWithPageObjects() {
         /* Open test site by URL */

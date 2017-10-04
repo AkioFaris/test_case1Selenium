@@ -2,6 +2,7 @@ package task3.page_objects;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 
 public class LoginForm {
@@ -24,6 +25,7 @@ public class LoginForm {
         return profile;
     }
 
+    @Step("Login as {0} with password: {1}.")
     public void login(String user, String pass) {
         caret.click();
         userLogin.sendKeys(user);

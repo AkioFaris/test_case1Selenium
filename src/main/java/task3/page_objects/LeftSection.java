@@ -5,6 +5,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static task3.enums.Options.*;
 
@@ -15,7 +16,7 @@ public class LeftSection {
     @FindBy(css = "ul.sub a")
     private ElementsCollection serviceOptions;
 
-
+    @Step("Check that Service subcategory dropdown from Left Section contains options.")
     public void checkServiceOptions() {
         serviceCaret.click();
         for (SelenideElement option :

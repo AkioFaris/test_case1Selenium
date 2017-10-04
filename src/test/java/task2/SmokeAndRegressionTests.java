@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class SmokeAndRegressionTests {
 
 
-    @Test(groups = {"Smoke", "Regression"})
+    @Test(groups = {"Smoke", "Regression"}, enabled = false)
     public void verifyTitle1() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -17,7 +17,7 @@ public class SmokeAndRegressionTests {
         driver.close();
     }
 
-    @Test(groups = {"Smoke", "Regression"})
+    @Test(groups = {"Smoke", "Regression"}, enabled = false)
     public void verifyTitle2() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         WebDriver driver = new ChromeDriver();
