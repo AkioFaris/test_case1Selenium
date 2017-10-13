@@ -7,6 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
+import static com.codeborne.selenide.Condition.visible;
 import static task3.enums.Options.*;
 
 public class LeftSection {
@@ -19,9 +20,8 @@ public class LeftSection {
     @Step("Check that Service subcategory dropdown from Left Section contains options.")
     public void checkServiceOptions() {
         serviceCaret.click();
-        for (SelenideElement option :
-                serviceOptions) {
-            option.shouldBe(Condition.visible);
+        for (SelenideElement option : serviceOptions) {
+            option.shouldBe(visible);
         }
         serviceOptions.shouldHave(CollectionCondition.texts(SUPPORT.text, DATES.text,
                 COMPL_TBL.text, SIMP_TBL.text, PAGES_TBL.text, DIFF_EL.text));

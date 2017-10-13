@@ -34,31 +34,31 @@ public class TestRangeSliders extends TestUI {
     @Description("In this test range sliders on Dates page will be set to different positions.")
     @Test
     public void checkUIWithPageObjects() {
-        /* Open test site by URL */
+        //1 Open test site by URL
         open(API_URI.text);
 
-        /* Perform login */
+        //2 Perform login
         loginForm.login(USER.login, USER.password);
 
-        /* Assert User name in the left-top side of screen that user is loggined */
+        //3 Assert User name in the left-top side of screen that user is loggined
         checkText(loginForm.getProfile(), USER.name);
 
-        /*Open Service -> Dates*/
+        //4 Open Service -> Dates
         header.openOptionPage(DATES);
 
-        /*left sliders - the most left position, right slider - the most right position*/
+        //4 left sliders - the most left position, right slider - the most right position
         datesPage.setSliders(0, 100);
         datesPage.checkSliders(0, 100);
 
-        /*left sliders - the most left position, right slider - the most left position.*/
+        //5 left sliders - the most left position, right slider - the most left position.
         datesPage.setSliders(0, 0);
         datesPage.checkSliders(0, 0);
 
-        /*left sliders - the most right position, right slider - the most right position.*/
+        //6 left sliders - the most right position, right slider - the most right position.
         datesPage.setSliders(100, 100);
         datesPage.checkSliders(100, 100);
 
-        /*Using drag-and-drop set Range sliders.*/
+        //7 Using drag-and-drop set Range sliders.
         datesPage.setSliders(30, 70);
         datesPage.checkSliders(30, 70);
     }

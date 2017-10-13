@@ -27,12 +27,12 @@ public class ParallelTestWithDataProvider {
 
     @Test(dataProvider = "correctData")
     public void verifyTextsUnderPictures(int index, String correctText) {
-        String apiURL = "https://jdi-framework.github.io/tests";
+        String apiUrl = "https://jdi-framework.github.io/tests";
 
         /* Open test site by URL */
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.navigate().to(apiURL);
+        driver.navigate().to(apiUrl);
 
         /* Find element and check text */
         WebElement element = driver.findElements(By.cssSelector(".benefit-txt")).get(index);

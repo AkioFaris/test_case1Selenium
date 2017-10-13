@@ -1,5 +1,5 @@
 package task3.init_classes;
 
-public interface PageObject {
+public interface IPageObject {
     void checkInterface();
 }

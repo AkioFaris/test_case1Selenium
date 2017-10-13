@@ -1,6 +1,6 @@
 package task3.enums;
 
-public enum DropdownValues {
+public enum Colors {
     RED("Red"),
     GREEN("Green"),
     BLUE("Blue"),
@@ -8,7 +8,7 @@ public enum DropdownValues {
 
     public String text;
 
-    DropdownValues(String text) {
+    Colors(String text) {
         this.text = text;
     }
 }

@@ -1,5 +1,5 @@
 package task3.init_classes;
 
-public interface Menu {
+public interface IMenu {
     void checkServiceOptions();
 }

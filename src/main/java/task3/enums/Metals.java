@@ -1,6 +1,6 @@
 package task3.enums;
 
-public enum RadioValues {
+public enum Metals {
     GOLD("Gold"),
     SILVER("Silver"),
     BRONZE("Bronze"),
@@ -8,7 +8,7 @@ public enum RadioValues {
 
     public String text;
 
-    RadioValues(String text) {
+    Metals(String text) {
         this.text = text;
     }
 }

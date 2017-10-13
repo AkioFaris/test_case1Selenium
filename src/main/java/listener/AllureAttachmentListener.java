@@ -6,20 +6,24 @@ import org.openqa.selenium.WebDriverException;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 import ru.yandex.qatools.allure.annotations.Attachment;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-public class AllureAttachmentListener
-        extends TestListenerAdapter {
 
+public class AllureAttachmentListener extends TestListenerAdapter {
+
+    @Step("Make a screenshot")
     @Attachment(value = "Attachment: {0}", type = "image/png")
-    private void makeScreenshot() {
+    private byte[] makeScreenshot() {
+
         byte[] array = {1};
         try {
-            ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+            return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
         } catch (WebDriverException e) {
             e.printStackTrace();
         }
+        return array;
     }
 
     @Override
@@ -31,6 +35,5 @@ public class AllureAttachmentListener
     public void onTestSuccess(ITestResult tr) {
         makeScreenshot();
     }
-    /**/
-}
 
+}

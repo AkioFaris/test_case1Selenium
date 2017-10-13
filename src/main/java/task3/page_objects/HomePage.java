@@ -4,9 +4,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
-import task3.init_classes.PageObject;
+import task3.init_classes.IPageObject;
 
-public class HomePage implements PageObject {
+public class HomePage implements IPageObject {
     @FindBy(css = ".benefit-icon")
     private ElementsCollection pictures;
 
@@ -22,12 +22,10 @@ public class HomePage implements PageObject {
     public void checkInterface() {
         pictures.shouldHaveSize(4);
         picLabels.shouldHaveSize(4);
-        for (SelenideElement pic :
-                pictures) {
+        for (SelenideElement pic : pictures) {
             pic.shouldBe(Condition.visible);
         }
-        for (SelenideElement label :
-                picLabels) {
+        for (SelenideElement label : picLabels) {
             label.shouldBe(Condition.visible);
         }
         title.shouldBe(Condition.visible);

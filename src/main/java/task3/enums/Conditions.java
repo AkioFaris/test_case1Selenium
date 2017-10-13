@@ -1,6 +1,6 @@
 package task3.enums;
 
-public enum CheckboxValues {
+public enum Conditions {
     WATER("Water"),
     EARTH("Earth"),
     WIND("Wind"),
@@ -8,7 +8,7 @@ public enum CheckboxValues {
 
     public String text;
 
-    CheckboxValues(String text) {
+    Conditions(String text) {
         this.text = text;
     }
 }

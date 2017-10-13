@@ -10,8 +10,7 @@ public class TestWithAnnotations {
 
     @BeforeClass
     public void beforeClass() {
-        String driverPath = "chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", driverPath);
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
     }
 
     @BeforeSuite
