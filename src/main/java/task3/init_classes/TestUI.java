@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.exactText;
 
 public abstract class TestUI {
-    public TestUI() {
+    protected TestUI() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         Configuration.browser = "CHROME";
         Configuration.startMaximized = true;

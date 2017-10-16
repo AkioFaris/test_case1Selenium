@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selenide.page;
 import static task3.enums.Options.DATES;
 
 public class RangeSlidersSteps extends TestUI {
-    private Header header = page(Header.class);
-    private DatesPage datesPage = page(DatesPage.class);
+    private final Header header = page(Header.class);
+    private final DatesPage datesPage = page(DatesPage.class);
 
     @Given("^Open Dates Page$")
     public void openDatesPage() throws Throwable {

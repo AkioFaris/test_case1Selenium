@@ -6,7 +6,7 @@ public enum Conditions {
     WIND("Wind"),
     FIRE("Fire");
 
-    public String text;
+    public final String text;
 
     Conditions(String text) {
         this.text = text;

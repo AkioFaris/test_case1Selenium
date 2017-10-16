@@ -1,6 +1,5 @@
 package task3.page_objects;
 
-import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -8,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 import task3.enums.Options;
 import task3.init_classes.IMenu;
-
-import static task3.enums.Options.*;
 
 public class Header implements IMenu {
     @FindBy(css = "a.dropdown-toggle span")

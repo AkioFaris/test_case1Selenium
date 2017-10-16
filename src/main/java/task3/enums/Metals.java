@@ -6,7 +6,7 @@ public enum Metals {
     BRONZE("Bronze"),
     SELEN("Selen");
 
-    public String text;
+    public final String text;
 
     Metals(String text) {
         this.text = text;

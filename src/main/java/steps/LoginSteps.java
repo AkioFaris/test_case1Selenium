@@ -10,12 +10,11 @@ import task3.page_objects.LoginForm;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
-import static task3.enums.Options.DATES;
 import static task3.enums.TestConstants.API_URI;
 import static task3.enums.UserData.USER;
 
 public class LoginSteps extends TestUI {
-    private LoginForm loginForm = page(LoginForm.class);
+    private final LoginForm loginForm = page(LoginForm.class);
     private Header header = page(Header.class);
     private DatesPage datesPage = page(DatesPage.class);
 

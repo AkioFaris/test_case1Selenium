@@ -8,7 +8,7 @@ public enum Options {
     PAGES_TBL("TABLE WITH PAGES"),
     DIFF_EL("DIFFERENT ELEMENTS");
 
-    public String text;
+    public final String text;
 
     Options(String text) {
         this.text = text;

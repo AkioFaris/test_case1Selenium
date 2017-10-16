@@ -6,7 +6,7 @@ public enum Colors {
     BLUE("Blue"),
     YELLOW("Yellow");
 
-    public String text;
+    public final String text;
 
     Colors(String text) {
         this.text = text;

@@ -18,10 +18,10 @@ import static task3.enums.Metals.SELEN;
 import static task3.enums.Options.DIFF_EL;
 
 public class DifferentElementsSteps extends TestUI {
-    private Header header = page(Header.class);
-    private HomePage homePage = page(HomePage.class);
-    private LeftSection leftSection = page(LeftSection.class);
-    private DifferentElementsPage diffElementsPage = page(DifferentElementsPage.class);
+    private final Header header = page(Header.class);
+    private final HomePage homePage = page(HomePage.class);
+    private final LeftSection leftSection = page(LeftSection.class);
+    private final DifferentElementsPage diffElementsPage = page(DifferentElementsPage.class);
 
     @Given("^Open Different Element Page$")
     public void openDatesPage(){
