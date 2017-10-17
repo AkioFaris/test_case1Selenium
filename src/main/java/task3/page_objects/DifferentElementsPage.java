@@ -13,6 +13,7 @@ import task3.init_classes.IPageObject;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.page;
 
 public class DifferentElementsPage implements IPageObject {
 
@@ -37,11 +38,7 @@ public class DifferentElementsPage implements IPageObject {
     @FindBy(css = ".sidebar-menu")
     private SelenideElement leftSection;
 
-    @FindBy(css = ".panel-body-list.logs li")
-    private ElementsCollection logs;
-
-    @FindBy(css = ".info-panel-section")
-    private SelenideElement rightSection;
+    private RightSection rightSection = page(RightSection.class);
 
     @Step("Check existence of elements on Different Element Page")
     public void checkInterface() {
@@ -59,7 +56,7 @@ public class DifferentElementsPage implements IPageObject {
         defaultBtn.shouldBe(visible);
         button.shouldBe(visible);
         leftSection.shouldBe(visible);
-        rightSection.shouldBe(visible);
+        rightSection.checkInterface();
     }
 
     @Step("Select condition {0}")
@@ -98,11 +95,11 @@ public class DifferentElementsPage implements IPageObject {
 
     @Step("Verify that log section contains {0}")
     public void checkValueChanged(String subStr) {
-        logs.findBy(text(subStr)).shouldBe(visible);
+        rightSection.logs.findBy(text(subStr)).shouldBe(visible);
     }
 
     @Step("Verify in log section that the condition {0} is {1} ")
     public void checkConditionChanged(String subStr, Boolean status) {
-        logs.findBy(text(subStr)).shouldHave(text(status.toString()));
+       rightSection.logs.findBy(text(subStr)).shouldHave(text(status.toString()));
     }
 }

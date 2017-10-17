@@ -11,8 +11,4 @@ public abstract class TestUI {
         Configuration.browser = "CHROME";
         Configuration.startMaximized = true;
     }
-
-    protected void checkText(SelenideElement elem, String text) {
-        elem.shouldHave(exactText(text));
-    }
 }

@@ -30,6 +30,6 @@ public class LoginSteps extends TestUI {
 
     @Then("^I should be on the user home page and check username$")
     public void iShouldBeOnTheUserHomePageAndCheckUsername() throws Throwable {
-        checkText(loginForm.getProfile(), USER.name);
+        loginForm.verifyUserName(USER.name);
     }
 }
